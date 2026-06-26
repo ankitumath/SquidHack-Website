@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@theme {
+  --color-squid-pink: #F9004D;
+  --color-squid-dark: #050505;
+  --color-squid-gray: #1a1a1a;
+  
+  --font-heading: "Game Of Squids", Orbitron, sans-serif;
+  --font-tech: Orbitron, sans-serif;
+  --font-body: Inter, sans-serif;
+}
+
+@font-face {
+    font-family: 'Game Of Squids';
+    src: url('/fonts/GameOfSquids.ttf') format('truetype'),
+         url('/GameOfSquids.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Ambient glowing background */
+.ambient-bg {
+    background: radial-gradient(circle at 50% 50%, rgba(249, 0, 77, 0.15) 0%, rgba(0, 0, 0, 1) 60%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+/* Subtle Splatter texture on bottom left */
+.texture-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background-image: radial-gradient(circle, rgba(249, 0, 77, 0.1) 2px, transparent 2px);
+    background-size: 15px 15px;
+    opacity: 0.3;
+    mask-image: linear-gradient(to top right, black, transparent);
+    -webkit-mask-image: linear-gradient(to top right, black, transparent);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Character Breathing/Floating Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.02);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animate-character {
+    animation: float 6s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.animate-character-delayed-1 {
+    animation: float 6.5s ease-in-out infinite 1s;
+    transform-origin: bottom center;
+}
+
+.animate-character-delayed-2 {
+    animation: float 5.5s ease-in-out infinite 2s;
+    transform-origin: bottom center;
+}
+
+/* Doll Background Animation */
+@keyframes doll-motion {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.2;
+        filter: blur(4px);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05);
+        opacity: 0.4;
+        filter: blur(2px);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.2;
+        filter: blur(4px);
+    }
+}
+
+.animate-doll {
+    animation: doll-motion 12s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+/* Timeline Dashed Line */
+.timeline-line {
+    position: absolute;
+    right: 1.25rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: 1px;
+    border-right: 2px dashed rgba(249, 0, 77, 0.4);
+    z-index: 0;
+}
+
+.triangle-a {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 0.35em solid transparent;
+    border-right: 0.35em solid transparent;
+    border-bottom: 0.7em solid #F9004D;
+    margin: 0 0.05em;
+}
+
+/* Timeline Animations */
+@keyframes timeline-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(249, 0, 77, 0);
+        transform: scale(1);
+    }
+    15% {
+        box-shadow: 0 0 20px rgba(249, 0, 77, 0.6);
+        transform: scale(1.3);
+    }
+    30% {
+        box-shadow: 0 0 0 rgba(249, 0, 77, 0);
+        transform: scale(1);
+    }
+}
+@keyframes timeline-text {
+    0%, 100% {
+        color: #9ca3af;
+    }
+    15% {
+        color: #F9004D;
+    }
+    30% {
+        color: #9ca3af;
+    }
+}
+
+.animate-timeline-circle {
+    animation: timeline-pulse 8s infinite;
+}
+.animate-timeline-text {
+    animation: timeline-text 8s infinite;
+}
+.timeline-delay-1 { animation-delay: 2s; }
+.timeline-delay-2 { animation-delay: 4s; }
+.timeline-delay-3 { animation-delay: 6s; }
+
+/* Prize Box Gradient */
+.prize-box {
+    background: linear-gradient(135deg, #F9004D 0%, #8a002b 100%);
+}
+
+/* Flowing Timeline Day 1 */
+@keyframes flow-line-day1 {
+    0% {
+        top: -150px;
+    }
+    45% {
+        top: 100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
+}
+.animate-flow-line-day1 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #F9004D, transparent);
+    animation: flow-line-day1 12s linear infinite;
+}
+
+/* Flowing Timeline Day 2 */
+@keyframes flow-line-day2 {
+    0%, 50% {
+        top: -150px;
+    }
+    95% {
+        top: 100%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+.animate-flow-line-day2 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #F9004D, transparent);
+    animation: flow-line-day2 12s linear infinite;
+}
+
+/* Flowing Timeline Hero */
+@keyframes flow-line-hero {
+    0% {
+        top: -150px;
+    }
+    100% {
+        top: 100%;
+    }
+}
+.animate-flow-line-hero {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #F9004D, transparent);
+    animation: flow-line-hero 8s linear infinite;
+}
+
+/* Custom styles for register.html */
+.glass-card {
+    background: rgba(8, 8, 8, 0.85);
+    border: 1px solid rgba(249, 0, 77, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: #F9004D;
+    border-radius: 3px;
+}
