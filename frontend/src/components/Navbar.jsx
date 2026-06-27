@@ -4,14 +4,24 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastScrollY = React.useRef(0);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentY = window.scrollY;
+      setIsScrolled(currentY > 50);
+      // Hide navbar when scrolling DOWN past 100px, show when scrolling UP
+      if (currentY > 100) {
+        setIsHidden(currentY > lastScrollY.current);
+      } else {
+        setIsHidden(false);
+      }
+      lastScrollY.current = currentY;
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -44,7 +54,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 w-full px-8 py-6 flex justify-between items-center z-50 transition-all duration-300 ${isScrolled ? 'bg-black/85 backdrop-blur-md py-4 border-b border-gray-900/80 -translate-y-full' : ''}`}>
+      <header className={`fixed top-0 left-0 w-full px-4 sm:px-8 py-6 flex justify-between items-center z-50 transition-all duration-300 ${isScrolled ? 'bg-black/85 backdrop-blur-md py-4 border-b border-gray-900/80' : ''} ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
         <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="flex flex-col select-none">
           <div className="font-heading font-black text-2xl tracking-[0.15em] leading-none uppercase">
             SQUID<br />

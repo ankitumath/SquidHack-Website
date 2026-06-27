@@ -59,14 +59,14 @@ const Home = () => {
         </div>
 
         {/* Animated Neon Shapes */}
-        <div className="fixed top-[12%] left-1/2 -translate-x-1/2 flex gap-8 md:gap-14 text-squid-pink font-black text-6xl md:text-8xl opacity-30 z-0 pointer-events-none">
+        <div className="fixed top-[8%] sm:top-[12%] left-1/2 -translate-x-1/2 flex gap-6 sm:gap-8 md:gap-14 text-squid-pink font-black text-4xl sm:text-6xl md:text-8xl opacity-20 sm:opacity-30 z-0 pointer-events-none">
           <span className="animate-character-delayed-2 drop-shadow-[0_0_25px_rgba(249,0,77,0.9)]">◯</span>
           <span className="animate-character drop-shadow-[0_0_25px_rgba(249,0,77,0.9)]">△</span>
           <svg className="animate-character-delayed-1 drop-shadow-[0_0_25px_rgba(249,0,77,0.9)] inline-block text-squid-pink" style={{width:'1.0em',height:'1.0em',verticalAlign:'-0.15em'}} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" /></svg>
 </div>
 
-        {/* Animated Guards Group */}
-        <div className="fixed bottom-0 left-0 z-0 w-full h-[100svh] pointer-events-none overflow-hidden mix-blend-screen">
+        {/* Animated Guards Group - hidden on small mobile */}
+        <div className="hidden sm:block fixed bottom-0 left-0 z-0 w-full h-[100svh] pointer-events-none overflow-hidden mix-blend-screen">
           <div className="absolute bottom-[10%] left-[45%] md:left-[35%] -translate-x-1/2 w-[180%] md:w-[130%] lg:w-[110%] max-w-[1400px] flex items-end justify-center z-10">
             {/* Far Left Guard */}
             <div className="absolute bottom-[12%] left-[2%] w-[24%] opacity-60 animate-character-delayed-2 z-10 mix-blend-screen">
@@ -93,7 +93,7 @@ const Home = () => {
         </div>
 
         {/* Main Grid Content */}
-        <main className="relative z-20 flex-grow flex flex-col lg:flex-row w-full px-8 lg:px-16 pt-32 pb-48 h-full min-h-screen">
+        <main className="relative z-20 flex-grow flex flex-col lg:flex-row w-full px-4 sm:px-8 lg:px-16 pt-24 sm:pt-32 pb-16 sm:pb-48 h-full min-h-screen">
          
           {/* Left Details */}
           <div className="w-full lg:w-[40%] flex flex-col justify-center pt-10">
@@ -136,7 +136,7 @@ const Home = () => {
           <div className="w-full lg:w-[20%]"></div>
 
           {/* Right Timeline Stepper */}
-          <div id="timeline" className="w-full lg:w-[40%] flex flex-col items-end justify-center mt-20 lg:mt-0 relative pr-4 lg:pr-12">
+          <div id="timeline" className="w-full lg:w-[40%] flex flex-col items-start sm:items-end justify-center mt-12 sm:mt-20 lg:mt-0 relative pr-0 sm:pr-4 lg:pr-12">
             <div className="text-squid-pink tracking-[0.3em] text-sm font-bold mb-10 border-l-2 border-squid-pink pl-3 py-1">
               | PATH TO ENTER |
             </div>
@@ -264,8 +264,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Very Bottom Footer Row */}
-        <div className="absolute bottom-4 left-0 w-full px-12 flex justify-between items-center text-[10px] text-gray-600 tracking-[0.3em] font-bold z-20">
+        {/* Very Bottom Footer Row - hidden on small screens */}
+        <div className="hidden sm:flex absolute bottom-4 left-0 w-full px-12 justify-between items-center text-[10px] text-gray-600 tracking-[0.3em] font-bold z-20">
           <div className="flex gap-2">
             <span>◯</span>
             <span>△</span>
@@ -481,21 +481,20 @@ const Home = () => {
             <p className="text-gray-500 tracking-[0.3em] text-xs font-bold">₹1,10,000 TOTAL PRIZE POOL</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-6 justify-center items-stretch max-w-5xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center items-stretch max-w-5xl mx-auto">
             {/* Column 1: Runner Up & Special Track */}
-            <div className="flex flex-col gap-6 w-full lg:w-1/3 order-2 lg:order-1 justify-between">
+            <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-1/3 order-2 lg:order-1 justify-between">
               <PrizeCard rank="1ST RUNNER UP" amount="₹25000" shape="△" />
               <PrizeCard rank="SPECIAL TRACK" title="Most Innovative Idea" amount="₹10000" shape="▷" subtitle={true} />
             </div>
 
-            {/* Column 2: Champion & Special Track */}
-            <div className="flex flex-col gap-6 w-full lg:w-1/3 order-1 lg:order-2 justify-between">
+            <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-1/3 order-1 lg:order-2 justify-between">
               <PrizeCard rank="GRAND WINNER" title="CHAMPION" amount="₹50000" shape="◯" isGrand={true} />
               <PrizeCard rank="SPECIAL TRACK" title="Best Social Impact Project" amount="₹5000" subtitle={true} />
             </div>
 
             {/* Column 3: 2nd Runner Up & Special Track */}
-            <div className="flex flex-col gap-6 w-full lg:w-1/3 order-3 justify-between">
+            <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-1/3 order-3 justify-between">
               <PrizeCard rank="2ND RUNNER UP" amount="₹15000" shape="◻" />
               <PrizeCard rank="SPECIAL TRACK" title="BEST WOMEN LEAD Team" amount="₹5000" subtitle={true} />
             </div>
@@ -521,7 +520,7 @@ const Home = () => {
             <p className="text-gray-500 tracking-[0.3em] text-xs font-bold">HEAD ORGANIZERS</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 max-w-6xl mx-auto">
             <OrganizerCard name="AKASH YADAV" email="akashyaduvanshi3004@gmail.com" tel="+91 72660 69509" imgUrl="/akash.png" isMain={false} />
             <OrganizerCard name="TULSI KESWANI" email="tulsikeswani7171@gmail.com" tel="+91 74159 28633" imgUrl="/tulsi.png" isMain={true} />
             <OrganizerCard name="ANKIT UMATH" email="ankitumath30@gmail.com" tel="+91 95092 85817" imgUrl="/ankit3.png" isMain={false} />
@@ -539,7 +538,7 @@ const Home = () => {
             <p className="text-gray-500 tracking-[0.3em] text-xs font-bold">RULES & REGULATIONS</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="border border-gray-800 bg-transparent p-6 hover:border-squid-pink/50 transition-colors rounded-sm">
               <h3 className="text-gray-300 font-bold tracking-widest text-xs md:text-sm flex items-center gap-4 uppercase">
                 <span className="text-squid-pink font-black text-lg">◯</span> The project must be developed during the hackathon period.
@@ -580,7 +579,7 @@ const Home = () => {
       </section>
 
       {/* FAQ SECTION */}
-      <section id="faq" className="relative py-32 px-8 lg:px-16 bg-transparent border-t border-gray-900">
+      <section id="faq" className="relative py-16 sm:py-32 px-4 sm:px-8 lg:px-16 bg-transparent border-t border-gray-900">
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-20">
             <h2 className="font-heading text-4xl md:text-5xl font-black tracking-widest uppercase mb-4">

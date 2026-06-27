@@ -247,7 +247,7 @@ const AdminDashboard = () => {
       <div className="ambient-bg pointer-events-none"></div>
 
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full px-8 py-4 flex justify-between items-center z-50 bg-black/90 border-b border-gray-900">
+      <header className="fixed top-0 left-0 w-full px-4 sm:px-8 py-4 flex justify-between items-center z-50 bg-black/90 border-b border-gray-900">
         <Link to="/" className="flex flex-col select-none">
           <div className="font-heading font-black text-xl md:text-2xl tracking-[0.15em] leading-none uppercase">
             SQUID<br />
@@ -372,8 +372,8 @@ const AdminDashboard = () => {
 
               {/* Teams Table */}
               {activeAdminTab === "teams" && (
-                <div className="w-full overflow-x-auto">
-                  <table className="w-full text-left border-collapse text-xs">
+                <div className="w-full overflow-x-auto -mx-2 px-2">
+                  <table className="min-w-[640px] w-full text-left border-collapse text-xs">
                     <thead>
                       <tr className="border-b border-gray-800 text-gray-500 uppercase tracking-wider font-bold">
                         <th className="py-3 px-4">Team ID</th>
