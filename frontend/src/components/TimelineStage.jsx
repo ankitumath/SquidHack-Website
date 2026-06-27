@@ -1,3 +1,4 @@
+import SquareIcon from './SquareIcon.jsx';
 import React from 'react';
 
 const TimelineStage = ({ time, title, description, type, isLast }) => {
@@ -11,7 +12,9 @@ const TimelineStage = ({ time, title, description, type, isLast }) => {
         <div className="stage-bullet-triangle absolute left-[2px] top-[7px] w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-squid-pink bg-transparent group-hover/item:scale-125 transition-transform duration-300 filter drop-shadow-[0_0_4px_rgba(249,0,77,0.8)]"></div>
       )}
       {type === 'square' && (
-        <div className="stage-bullet-square absolute left-[2px] top-1.5 w-3 h-3 border-2 border-squid-pink bg-black group-hover/item:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(249,0,77,0.5)]"></div>
+        <div className="stage-bullet-square absolute left-[2px] top-1.5 w-3 h-3 border-2 border-squid-pink bg-black group-hover/item:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(249,0,77,0.5)] flex items-center justify-center">
+          <SquareIcon className="w-2 h-2 text-squid-pink" />
+        </div>
       )}
       
       <div className="text-squid-pink font-tech text-xs tracking-wider font-semibold mb-1">{time}</div>

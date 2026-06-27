@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 w-full px-8 py-6 flex justify-between items-center z-50 transition-all duration-300 ${isScrolled ? 'bg-black/85 backdrop-blur-md py-4 border-b border-gray-900/80' : ''}`}>
+      <header className={`fixed top-0 left-0 w-full px-8 py-6 flex justify-between items-center z-50 transition-all duration-300 ${isScrolled ? 'bg-black/85 backdrop-blur-md py-4 border-b border-gray-900/80 -translate-y-full' : ''}`}>
         <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="flex flex-col select-none">
           <div className="font-heading font-black text-2xl tracking-[0.15em] leading-none uppercase">
             SQUID<br />

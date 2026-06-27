@@ -314,13 +314,7 @@ const Register = () => {
         </Link>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/admin"
-            className="flex items-center gap-2 border border-gray-800 hover:border-squid-pink px-4 py-2 rounded-sm text-[10px] md:text-xs font-bold tracking-widest uppercase bg-black/40 backdrop-blur-sm transition-all duration-300"
-          >
-            <span className="text-squid-pink">◻</span>
-            <span>Admin Dashboard</span>
-          </Link>
+
           <Link
             to="/"
             className="border border-gray-800 hover:border-white px-4 py-2 rounded-sm text-[10px] md:text-xs font-bold tracking-widest uppercase bg-black/40 backdrop-blur-sm transition-all duration-300"
