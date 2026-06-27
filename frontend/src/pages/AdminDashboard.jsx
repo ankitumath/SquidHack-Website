@@ -152,7 +152,7 @@ const AdminDashboard = () => {
   const handleUpdateStatus = async (teamId, newStatus) => {
     const token = localStorage.getItem("adminToken");
     try {
-      const response = await fetch(`/api/registrations/${teamId}/status`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/registrations/${teamId}/status`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

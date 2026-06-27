@@ -222,7 +222,7 @@ const Register = () => {
       payload.append("paymentScreenshot", paymentFile);
     }
 
-    fetch("/api/registrations", {
+    fetch(`${import.meta.env.VITE_API_URL}/api/registrations`, {
       method: "POST",
       body: payload,
     })
