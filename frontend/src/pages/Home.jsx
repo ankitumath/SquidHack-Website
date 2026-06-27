@@ -62,7 +62,7 @@ const Home = () => {
         <div className="fixed top-[12%] left-1/2 -translate-x-1/2 flex gap-8 md:gap-14 text-squid-pink font-black text-6xl md:text-8xl opacity-30 z-0 pointer-events-none">
           <span className="animate-character-delayed-2 drop-shadow-[0_0_25px_rgba(249,0,77,0.9)]">◯</span>
           <span className="animate-character drop-shadow-[0_0_25px_rgba(249,0,77,0.9)]">△</span>
-          <span className="animate-character-delayed-1 drop-shadow-[0_0_25px_rgba(249,0,77,0.9)] scale-125 translate-y-[2px] inline-block">□</span>
+          <svg className="animate-character-delayed-1 drop-shadow-[0_0_25px_rgba(249,0,77,0.9)] inline-block text-squid-pink" style={{width:'1.0em',height:'1.0em',verticalAlign:'-0.15em'}} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" /></svg>
 </div>
 
         {/* Animated Guards Group */}
@@ -269,7 +269,7 @@ const Home = () => {
           <div className="flex gap-2">
             <span>◯</span>
             <span>△</span>
-            <span className="text-sm leading-none -translate-y-[2px]">◻</span>
+
           </div>
           <div className="flex items-center gap-4">
             <span>◯</span>
@@ -288,7 +288,7 @@ const Home = () => {
             <div className="flex justify-center gap-3 text-squid-pink text-sm mb-4">
               <span>◯</span>
               <span>△</span>
-              <span>◻</span>
+              <svg className="text-squid-pink shrink-0" style={{width:'0.875rem',height:'0.875rem'}} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" /></svg>
             </div>
             <h2 className="font-heading text-3xl md:text-4xl font-black tracking-widest uppercase mb-4">
               THE <span className="text-squid-pink">STAKES</span> ARE HIGH
@@ -333,7 +333,7 @@ const Home = () => {
             </div>
             <div className="h-px w-12 bg-gray-900 md:h-8 md:w-px"></div>
             <div className="flex flex-col items-center">
-              <span className="text-squid-pink text-lg mb-1">◻</span>
+              <svg className="text-squid-pink mb-1 shrink-0" style={{width:'1.125rem',height:'1.125rem'}} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" /></svg>
               <span className="text-gray-400 font-tech text-xs tracking-widest font-bold">OUTPLAY. OUTLAST. OUTCODE.</span>
             </div>
           </div>
@@ -552,7 +552,7 @@ const Home = () => {
             </div>
             <div className="border border-gray-800 bg-transparent p-6 hover:border-squid-pink/50 transition-colors rounded-sm">
               <h3 className="text-gray-300 font-bold tracking-widest text-xs md:text-sm flex items-center gap-4 uppercase">
-                <span className="text-squid-pink font-black text-lg">◻</span> Open-source libraries and AI tools are permitted.
+                <svg className="w-5 h-5 text-squid-pink shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" /></svg> Open-source libraries and AI tools are permitted.
               </h3>
             </div>
             <div className="border border-gray-800 bg-transparent p-6 hover:border-squid-pink/50 transition-colors rounded-sm">
@@ -567,7 +567,7 @@ const Home = () => {
             </div>
             <div className="border border-gray-800 bg-transparent p-6 hover:border-squid-pink/50 transition-colors rounded-sm">
               <h3 className="text-gray-300 font-bold tracking-widest text-xs md:text-sm flex items-center gap-4 uppercase">
-                <span className="text-squid-pink font-black text-lg">◻</span> Organizers reserve the right to verify project authenticity.
+                <svg className="w-5 h-5 text-squid-pink shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" /></svg> Organizers reserve the right to verify project authenticity.
               </h3>
             </div>
             <div className="border border-gray-800 bg-transparent p-6 hover:border-squid-pink/50 transition-colors rounded-sm md:col-span-2">
