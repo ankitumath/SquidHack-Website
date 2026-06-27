@@ -62,8 +62,8 @@ const Home = () => {
         <div className="fixed top-[12%] left-1/2 -translate-x-1/2 flex gap-8 md:gap-14 text-squid-pink font-black text-6xl md:text-8xl opacity-30 z-0 pointer-events-none">
           <span className="animate-character-delayed-2 drop-shadow-[0_0_25px_rgba(249,0,77,0.9)]">◯</span>
           <span className="animate-character drop-shadow-[0_0_25px_rgba(249,0,77,0.9)]">△</span>
-          <span className="animate-character-delayed-1 drop-shadow-[0_0_25px_rgba(249,0,77,0.9)] leading-none -translate-y-[8px]">◻</span>
-        </div>
+          <span className="animate-character-delayed-1 drop-shadow-[0_0_25px_rgba(249,0,77,0.9)] scale-125 translate-y-[2px] inline-block">□</span>
+</div>
 
         {/* Animated Guards Group */}
         <div className="fixed bottom-0 left-0 z-0 w-full h-[100svh] pointer-events-none overflow-hidden mix-blend-screen">
@@ -94,13 +94,22 @@ const Home = () => {
 
         {/* Main Grid Content */}
         <main className="relative z-20 flex-grow flex flex-col lg:flex-row w-full px-8 lg:px-16 pt-32 pb-48 h-full min-h-screen">
+         
           {/* Left Details */}
           <div className="w-full lg:w-[40%] flex flex-col justify-center pt-10">
-            <div className="flex gap-3 text-squid-pink opacity-80 mb-6 text-sm">
-              <span>◯</span>
-              <span>△</span>
-              <span className="text-lg leading-none -translate-y-[2px]">◻</span>
-            </div>
+          <div className="flex gap-3 text-squid-pink opacity-80 mb-6">
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+    <path d="M12 5L19 19H5L12 5Z" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+    <rect x="5" y="5" width="14" height="14" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+</div>
             <div className="text-gray-400 text-xs md:text-sm tracking-[0.3em] font-semibold mb-1">
               ARE YOU READY TO
             </div>

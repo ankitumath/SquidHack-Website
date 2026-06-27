@@ -345,7 +345,7 @@ const Register = () => {
             {/* Draft Indicator */}
             <div className="mt-4 flex items-center justify-center gap-2 text-[10px] text-gray-500 font-bold uppercase tracking-widest select-none">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
-              <span>Draft Auto-Saved</span>
+              <span>Enter Valid Details</span>
             </div>
           </div>
 
