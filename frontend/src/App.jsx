@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home.jsx'));
 const Register = lazy(() => import('./pages/Register.jsx'));
+const AdminLogin = lazy(() => import('./pages/AdminLogin.jsx'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard.jsx'));
 
 // Loading component matching the Squid Game theme
 const PageLoader = () => (
@@ -24,6 +26,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Suspense>
