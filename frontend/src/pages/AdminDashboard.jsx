@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
     const fetchSubmissions = async () => {
       try {
-        const response = await fetch("/api/registrations", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/registrations`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
