@@ -108,8 +108,7 @@ const Register = () => {
         const name = formData[`memberName_${i}`];
         const email = formData[`memberEmail_${i}`];
         const mobile = formData[`memberMobile_${i}`];
-        const year = formData[`college_${i}`];
-        if (!name || !email || !mobile || !college || mobile.length !== 10) {
+        if (!name || !email || !mobile || mobile.length !== 10) {
           return false;
         }
       }
