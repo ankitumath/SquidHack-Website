@@ -522,7 +522,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 max-w-6xl mx-auto">
             <OrganizerCard name="AKASH YADAV" email="akashyaduvanshi3004@gmail.com" tel="+91 72660 69509" imgUrl="/akash.png" isMain={false} />
-            <OrganizerCard name="TULSI KESWANI" email="tulsikeswani7171@gmail.com" tel="+91 74159 28633" imgUrl="/tulsi.png" isMain={true} />
+            <OrganizerCard name="TULSI KESWANI" email="tulsikeswani7171@gmail.com" tel="+91 74159 28633" imgUrl="/tulsi1.png" isMain={true} />
             <OrganizerCard name="ANKIT UMATH" email="ankitumath30@gmail.com" tel="+91 95092 85817" imgUrl="/ankit3.png" isMain={false} />
           </div>
         </div>

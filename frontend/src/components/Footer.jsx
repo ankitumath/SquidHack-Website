@@ -10,9 +10,28 @@ const Footer = () => {
           <div className="font-heading font-black text-4xl tracking-[0.15em] uppercase mb-4 text-white drop-shadow-[0_0_10px_rgba(249,0,77,0.3)]">
             SQUID H<span className="triangle-a text-[0.8em] -translate-y-[0.1em]"></span>CK
           </div>
-          <div className="text-gray-400 text-[10px] tracking-[0.3em] font-bold uppercase mb-2">
-            ORGANIZED BY SCYP CLUB
+
+          {/* SCYP Club Logo */}
+          <div className="flex items-center gap-3 mb-3">
+            <img
+              src="/scyp_logo.png"
+              alt="SCYP Club Logo"
+              className="w-14 h-14 rounded-full object-cover border-2 border-cyan-500/60 shadow-[0_0_12px_rgba(0,200,255,0.35)]"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+            <div className="flex flex-col items-start">
+              <div className="text-cyan-400 text-[10px] tracking-[0.25em] font-black uppercase">
+                ORGANIZED BY
+              </div>
+              <div className="text-white text-sm font-black tracking-[0.15em] uppercase leading-tight">
+                SCYP CLUB
+              </div>
+              <div className="text-gray-500 text-[9px] tracking-[0.15em] font-semibold uppercase">
+                Student Council of Yantriki Panchtatva
+              </div>
+            </div>
           </div>
+
           <div className="text-squid-pink text-[10px] tracking-[0.2em] font-bold uppercase">
             M BLOCK, SAGE UNIVERSITY, INDORE
           </div>
