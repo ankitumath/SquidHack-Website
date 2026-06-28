@@ -108,10 +108,8 @@ const Register = () => {
         const name = formData[`memberName_${i}`];
         const email = formData[`memberEmail_${i}`];
         const mobile = formData[`memberMobile_${i}`];
-        const course = formData[`memberCourse_${i}`];
-        const year = formData[`memberYear_${i}`] || "1st";
-        const branch = formData[`memberBranch_${i}`];
-        if (!name || !email || !mobile || !course || !year || !branch || mobile.length !== 10) {
+        const year = formData[`college_${i}`];
+        if (!name || !email || !mobile || !college || mobile.length !== 10) {
           return false;
         }
       }
@@ -210,9 +208,7 @@ const Register = () => {
         name: formData[`memberName_${i}`],
         email: formData[`memberEmail_${i}`],
         mobile: formData[`memberMobile_${i}`],
-        course: formData[`memberCourse_${i}`],
-        year: formData[`memberYear_${i}`] || "1st",
-        branch: formData[`memberBranch_${i}`],
+        year: formData[`college_${i}`],
       });
     }
     payload.append("members", JSON.stringify(members));
@@ -237,7 +233,7 @@ const Register = () => {
         const newEmail = {
           to: savedRegistration.leaderEmail,
           subject: `SquidHack 2026 - Registration Received (Team ID: ${savedRegistration.teamId})`,
-          body: `Greetings ${savedRegistration.leaderName},\n\nWe have received your finalist registration for Team '${savedRegistration.teamName}' (ID: ${savedRegistration.teamId}). Our VIP judges are verifying your ₹1500 transaction ID: ${savedRegistration.transactionId}. See you in the arena!`,
+          body: `Greetings ${savedRegistration.leaderName},\n\nWe have received your finalist registration for Team '${savedRegistration.teamName}' (ID: ${savedRegistration.teamId}). Our organizers are verifying your ₹1500 transaction ID: ${savedRegistration.transactionId}. See you in the arena!`,
           timestamp: new Date().toLocaleString(),
         };
 
@@ -544,44 +540,20 @@ const Register = () => {
                               className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-1.5 text-xs text-white focus:outline-none transition-all"
                             />
                           </div>
+                       
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[9px] font-bold tracking-widest uppercase text-gray-500">Course *</label>
+                            <label className="text-[9px] font-bold tracking-widest uppercase text-gray-500">College Name *</label>
                             <input
                               type="text"
-                              name={`memberCourse_${idx}`}
-                              value={formData[`memberCourse_${idx}`] || ""}
+                              name={`memberCollege_${idx}`}
+                              value={formData[`memberCollege_${idx}`] || ""}
                               onChange={handleInputChange}
                               required
-                              placeholder="e.g. B.Tech"
+                              placeholder="e.g. SAGE University"
                               className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-1.5 text-xs text-white focus:outline-none transition-all"
                             />
                           </div>
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-[9px] font-bold tracking-widest uppercase text-gray-500">Year *</label>
-                            <select
-                              name={`memberYear_${idx}`}
-                              value={formData[`memberYear_${idx}`] || "1st"}
-                              onChange={handleInputChange}
-                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-1.5 text-xs text-white focus:outline-none transition-all cursor-pointer"
-                            >
-                              <option value="1st">1st Year</option>
-                              <option value="2nd">2nd Year</option>
-                              <option value="3rd">3rd Year</option>
-                              <option value="4th">4th Year</option>
-                            </select>
-                          </div>
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-[9px] font-bold tracking-widest uppercase text-gray-500">Branch/Specialization *</label>
-                            <input
-                              type="text"
-                              name={`memberBranch_${idx}`}
-                              value={formData[`memberBranch_${idx}`] || ""}
-                              onChange={handleInputChange}
-                              required
-                              placeholder="e.g. CSE"
-                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-1.5 text-xs text-white focus:outline-none transition-all"
-                            />
-                          </div>
+                    
                         </div>
                       </div>
                     ))
