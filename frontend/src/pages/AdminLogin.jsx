@@ -84,7 +84,7 @@ const AdminLogin = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="ankitumath30@gmail.com"
+              placeholder="example@gmail.com"
               className="bg-black border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm text-white focus:outline-none transition-all"
             />
           </div>
@@ -99,7 +99,7 @@ const AdminLogin = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                placeholder="••••••••••••"
+                placeholder="••••••"
                 className="w-full bg-black border border-gray-800 focus:border-squid-pink rounded-sm px-4 pr-11 py-2.5 text-sm text-white focus:outline-none transition-all"
               />
               <button
