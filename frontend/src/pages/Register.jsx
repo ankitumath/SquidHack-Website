@@ -641,15 +641,15 @@ const Register = () => {
 
                 <div className="flex flex-col md:flex-row items-center gap-8 py-4">
                   <div className="flex flex-col items-center gap-3 w-full md:w-1/3">
-                    <div className="p-3 bg-white rounded-md shadow-lg shadow-squid-pink/10 border-4 border-squid-pink">
+                    <div className="rounded-md shadow-lg shadow-squid-pink/20 border-4 border-squid-pink overflow-hidden w-[176px] h-[176px]">
                       <img
                         id="upi-qr-code"
-                        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=000000&data=upi://pay?pa=squid@pay%26pn=SquidHack%26am=1500%26cu=INR%26tn=Finalist%20Registration"
+                        src="/akashQr.jpeg"
                         alt="Registration UPI QR Code"
-                        className="w-[180px] h-[180px] object-contain"
+                        className="w-full h-full object-cover object-center scale-[1.08]"
                       />
                     </div>
-                    <span className="text-[9px] text-gray-400 tracking-[0.25em] font-bold uppercase mt-1">Scan with any UPI App</span>
+                    <span className="text-[9px] text-gray-400 tracking-[0.25em] font-bold uppercase mt-1">Scan with PhonePe · AKASH YADAV</span>
                   </div>
 
                   <div className="w-full md:w-2/3 flex flex-col gap-4">

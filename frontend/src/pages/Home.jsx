@@ -117,7 +117,7 @@ const Home = () => {
               PLAY THE GAME?
             </div>
             
-            <h1 className="font-heading text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[7rem] font-black leading-[0.9] tracking-[0.05em] uppercase mb-6 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-[4.4rem] lg:text-[5.6rem] font-black leading-[0.9] tracking-[0.05em] uppercase mb-6 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
               <span class="text-white">SQUID</span><br />
               <span class="text-white flex items-center">
                 H<span class="triangle-a text-[0.85em] mx-1 lg:mx-2 -translate-y-[0.05em]"></span>CK
@@ -204,7 +204,7 @@ const Home = () => {
         </main>
 
         {/* Bottom Event Details Bar */}
-        <div className="relative lg:absolute bottom-auto lg:bottom-16 left-0 right-0 px-8 lg:px-16 z-30 mt-12 lg:mt-0 pb-16 lg:pb-0">
+        <div className="relative lg:absolute bottom-0 lg:bottom-5 w-full left-0 right-0 px-8 lg:px-16 z-30 mt-12 lg:mt-0 pb-16 lg:pb-0">
           <div className="w-full bg-[#0a0a0a]/80 backdrop-blur-md border border-gray-800 rounded-sm flex flex-col lg:flex-row shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
             <div className="flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-gray-800">
               <div className="p-6 flex items-center gap-4">
@@ -253,7 +253,7 @@ const Home = () => {
                   <span className="text-6xl">△</span>
                 </div>
               </div>
-              <div className="absolute left-[5%] lg:left-[-3rem] top-1/2 -translate-y-1/2 w-20 h-20 md:w-28 md:h-28 z-20">
+              <div className="absolute left-[5%] lg:left-[-2.4rem] top-1/2 -translate-y-1/2 w-16 h-16 md:w-22 md:h-22 z-20">
                 <img src="/fontMan mask.png" onError={(e) => { e.target.style.display = 'none'; }} alt="Frontman Mask" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]" />
               </div>
               <div className="flex flex-col relative z-10 pl-24 lg:pl-16 w-full text-center lg:text-left">
@@ -264,20 +264,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Very Bottom Footer Row - hidden on small screens */}
-        <div className="hidden sm:flex absolute bottom-4 left-0 w-full px-12 justify-between items-center text-[10px] text-gray-600 tracking-[0.3em] font-bold z-20">
-          <div className="flex gap-2">
-            <span>◯</span>
-            <span>△</span>
-
-          </div>
-          <div className="flex items-center gap-4">
-            <span>◯</span>
-            <span>SURVIVE. CODE. WIN.</span>
-            <span className="text-squid-pink">▷</span>
-          </div>
-          <div className="w-[50px]"></div>
-        </div>
       </section>
 
       {/* SURVIVAL STATS SECTION */}
@@ -293,11 +279,11 @@ const Home = () => {
             <h2 className="font-heading text-3xl md:text-4xl font-black tracking-widest uppercase mb-4">
               THE <span className="text-squid-pink">STAKES</span> ARE HIGH
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base font-medium leading-relaxed italic">
+            <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base font-medium leading-relaxed italic">
               "300+ players entered. Only the best innovators survive."
             </p>
             <div className="text-squid-pink text-xs md:text-sm tracking-[0.2em] font-bold uppercase mt-4 animate-pulse">
-              Outplay. Outcode. Survive.
+              Outplay. Eliminate. Survive.
             </div>
           </div>
 
@@ -324,17 +310,17 @@ const Home = () => {
           <div className="border-y border-gray-900 py-8 flex flex-col md:flex-row justify-around items-center gap-6 text-center">
             <div className="flex flex-col items-center">
               <span className="text-squid-pink text-lg mb-1">◯</span>
-              <span className="text-gray-400 font-tech text-xs tracking-widest font-bold">RED LIGHT. GREEN LIGHT. START CODING.</span>
+              <span className="text-gray-400 font-tech text-xs tracking-widest font-bold">THE CLOCK IS TICKING.....</span>
             </div>
             <div className="h-px w-12 bg-gray-900 md:h-8 md:w-px"></div>
             <div className="flex flex-col items-center">
               <span className="text-squid-pink text-lg mb-1">△</span>
-              <span className="text-gray-400 font-tech text-xs tracking-widest font-bold">ONLY ONE TEAM WILL SURVIVE.</span>
+              <span className="text-gray-400 font-tech text-xs tracking-widest font-bold">THE CODE IS CALLING.</span>
             </div>
             <div className="h-px w-12 bg-gray-900 md:h-8 md:w-px"></div>
             <div className="flex flex-col items-center">
               <svg className="text-squid-pink mb-1 shrink-0" style={{width:'1.125rem',height:'1.125rem'}} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" /></svg>
-              <span className="text-gray-400 font-tech text-xs tracking-widest font-bold">OUTPLAY. OUTLAST. OUTCODE.</span>
+              <span className="text-gray-400 font-tech text-xs tracking-widest font-bold">THE GAME IS YOURS TO WIN..</span>
             </div>
           </div>
         </div>
@@ -342,7 +328,7 @@ const Home = () => {
 
       {/* ABOUT SECTION */}
       <section id="about" className="relative py-32 px-8 lg:px-16 bg-transparent border-t-2 border-gray-900 overflow-hidden">
-        <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 text-[40rem] text-squid-pink opacity-[0.03] pointer-events-none font-bold leading-none select-none">
+        <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 text-[32rem] text-squid-pink opacity-[0.03] pointer-events-none font-bold leading-none select-none">
           ◯
         </div>
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-16">
@@ -358,8 +344,8 @@ const Home = () => {
             </p>
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="w-72 h-72 border-[12px] border-squid-pink rounded-full shadow-[0_0_60px_rgba(249,0,77,0.3)] flex flex-col items-center justify-center bg-black/80 backdrop-blur-md">
-              <span className="text-gray-500 font-bold tracking-[0.3em] text-xs mb-2">TIME REMAINING</span>
+            <div className="w-85 h-56 border-[5px] border-squid-pink square-full shadow-[0_0_50px_rgba(249,0,77,0.3)] flex flex-col items-center justify-center  backdrop-blur-md">
+              <span className="text-gray-300 font-bold tracking-[0.2em] text-s mb-2">Enter the Arena Soon</span>
               <span className="text-white font-tech text-4xl font-black tracking-widest text-shadow-glow">
                 {timeLeft}
               </span>
@@ -377,13 +363,13 @@ const Home = () => {
             <h2 className="font-heading text-4xl md:text-5xl font-black tracking-widest uppercase mb-4">
               THE <span className="text-squid-pink">Game</span> Timeline
             </h2>
-            <p className="text-gray-500 tracking-[0.3em] text-xs font-bold uppercase">GAME SCHEDULE & TIME LIMITS</p>
+            <p className="text-gray-300 tracking-[0.2em] text-xs font-bold uppercase">GAME SCHEDULE & TIME LIMITS</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
             {/* Day 1 Card */}
             <div className="bg-transparent p-4 md:p-8 relative overflow-hidden group">
-              <div className="absolute -right-8 -top-8 text-[12rem] font-heading font-black text-gray-900/10 group-hover:text-squid-pink/5 transition-colors duration-500 select-none pointer-events-none">
+              <div className="absolute -right-8 -top-8 text-[9.6rem] font-heading font-black text-gray-900/10 group-hover:text-squid-pink/5 transition-colors duration-500 select-none pointer-events-none">
                 01
               </div>
 
@@ -414,7 +400,7 @@ const Home = () => {
 
             {/* Day 2 Card */}
             <div className="bg-transparent p-4 md:p-8 relative overflow-hidden group">
-              <div className="absolute -right-8 -top-8 text-[12rem] font-heading font-black text-gray-900/10 group-hover:text-squid-pink/5 transition-colors duration-500 select-none pointer-events-none">
+              <div className="absolute -right-8 -top-8 text-[9.6rem] font-heading font-black text-gray-900/10 group-hover:text-squid-pink/5 transition-colors duration-500 select-none pointer-events-none">
                 02
               </div>
 
@@ -456,7 +442,7 @@ const Home = () => {
             <h2 className="font-heading text-4xl md:text-5xl font-black tracking-widest uppercase mb-4">
               THE <span className="text-squid-pink">TRACKS</span>
             </h2>
-            <p className="text-gray-500 tracking-[0.3em] text-xs font-bold">CHOOSE YOUR PATH</p>
+            <p className="text-gray-300 tracking-[0.2em] text-s font-bold">CHOOSE YOUR PATH</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -478,31 +464,31 @@ const Home = () => {
             <h2 className="font-heading text-4xl md:text-5xl font-black tracking-widest uppercase mb-3">
               THE <span className="text-squid-pink">REWARDS</span>
             </h2>
-            <p className="text-gray-500 tracking-[0.3em] text-xs font-bold">₹1,10,000 TOTAL PRIZE POOL</p>
+            <p className="text-gray-200 tracking-[0.2em] text-s font-bold">₹1,10,000 TOTAL PRIZE POOL</p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center items-stretch max-w-5xl mx-auto">
             {/* Column 1: Runner Up & Special Track */}
             <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-1/3 order-2 lg:order-1 justify-between">
-              <PrizeCard rank="1ST RUNNER UP" amount="₹25000" shape="△" />
-              <PrizeCard rank="SPECIAL TRACK" title="Most Innovative Idea" amount="₹10000" shape="▷" subtitle={true} />
+              <PrizeCard rank="1ST RUNNER UP" amount="₹25,000" shape="△" />
+              <PrizeCard rank="SPECIAL TRACK" title="Best Women Led Team" amount="₹5,000" shape="▷" subtitle={true} />
             </div>
 
             <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-1/3 order-1 lg:order-2 justify-between">
-              <PrizeCard rank="GRAND WINNER" title="CHAMPION" amount="₹50000" shape="◯" isGrand={true} />
-              <PrizeCard rank="SPECIAL TRACK" title="Best Social Impact Project" amount="₹5000" subtitle={true} />
+              <PrizeCard rank="GRAND WINNER" title="CHAMPION" amount="₹50,000" shape="◯" isGrand={true} />
+              <PrizeCard rank="SPECIAL TRACK" title="Most Innovative Idea" amount="₹10,000" subtitle={true} />
             </div>
 
             {/* Column 3: 2nd Runner Up & Special Track */}
             <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-1/3 order-3 justify-between">
-              <PrizeCard rank="2ND RUNNER UP" amount="₹15000" shape="◻" />
-              <PrizeCard rank="SPECIAL TRACK" title="BEST WOMEN LEAD Team" amount="₹5000" subtitle={true} />
+              <PrizeCard rank="2ND RUNNER UP" amount="₹15,000" shape="◻" />
+              <PrizeCard rank="SPECIAL TRACK" title="Best Social Impact Project" amount="₹5,000" subtitle={true} />
             </div>
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-15 text-center">
             <div className="inline-block bg-transparent border border-squid-pink/30 px-6 py-2.5 rounded-sm shadow-md">
-              <span className="text-gray-300 text-[11px] tracking-[0.2em] uppercase font-bold">
+              <span className="text-gray-250 text-[12px] tracking-[0.2em] uppercase font-bold">
                 <span className="text-squid-pink">★</span> CERTIFICATE OF PARTICIPATION FOR ALL PARTICIPANTS <span className="text-squid-pink">★</span>
               </span>
             </div>
@@ -517,7 +503,7 @@ const Home = () => {
             <h2 className="font-heading text-4xl md:text-5xl font-black tracking-widest uppercase mb-4">
               THE <span className="text-squid-pink">FRONTMEN</span>
             </h2>
-            <p className="text-gray-500 tracking-[0.3em] text-xs font-bold">HEAD ORGANIZERS</p>
+            <p className="text-gray-400 tracking-[0.2em] text-s font-bold">HEAD ORGANIZERS</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 max-w-6xl mx-auto">
@@ -535,7 +521,7 @@ const Home = () => {
             <h2 className="font-heading text-4xl md:text-5xl font-black tracking-widest uppercase mb-4">
               RULES OF THE <span class="text-squid-pink">GAME</span>
             </h2>
-            <p className="text-gray-500 tracking-[0.3em] text-xs font-bold">RULES & REGULATIONS</p>
+            <p className="text-gray-400 tracking-[0.2em] text-s font-bold">RULES & REGULATIONS</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -585,7 +571,7 @@ const Home = () => {
             <h2 className="font-heading text-4xl md:text-5xl font-black tracking-widest uppercase mb-4">
               FAQ
             </h2>
-            <p className="text-gray-500 tracking-[0.3em] text-xs font-bold">FREQUENTLY ASKED QUESTIONS</p>
+            <p className="text-gray-400 tracking-[0.3em] text-xs font-bold">FREQUENTLY ASKED QUESTIONS</p>
           </div>
 
           <div className="space-y-4">

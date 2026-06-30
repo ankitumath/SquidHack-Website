@@ -21,6 +21,7 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    font-size: 80%;
 }
 
 body {
@@ -45,10 +46,10 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 400px;
-    height: 400px;
+    width: 320px;
+    height: 320px;
     background-image: radial-gradient(circle, rgba(249, 0, 77, 0.1) 2px, transparent 2px);
-    background-size: 15px 15px;
+    background-size: 12px 12px;
     opacity: 0.3;
     mask-image: linear-gradient(to top right, black, transparent);
     -webkit-mask-image: linear-gradient(to top right, black, transparent);
