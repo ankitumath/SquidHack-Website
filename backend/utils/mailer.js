@@ -22,8 +22,9 @@ const createTransporter = () => {
  * @param {string} options.leaderName - Leader's name
  * @param {string} options.teamId     - Assigned Team ID
  * @param {string} options.status     - "Approved" | "Rejected"
+ * @param {string} [options.reason]   - Optional rejection reason (Rejected only)
  */
-export const sendStatusEmail = async ({ to, teamName, leaderName, teamId, status }) => {
+export const sendStatusEmail = async ({ to, teamName, leaderName, teamId, status, reason }) => {
   const transporter = createTransporter();
 
   const isApproved = status === "Approved";
@@ -57,6 +58,7 @@ export const sendStatusEmail = async ({ to, teamName, leaderName, teamId, status
         <hr style="border-color:#1a1a1a;margin:24px 0;" />
         <p style="font-size:14px;color:#aaa;">Greetings, <strong style="color:#fff">${leaderName}</strong>.</p>
         <p style="font-size:14px;color:#aaa;">We regret to inform you that the registration for team <strong style="color:#fff">${teamName}</strong> (ID: <strong style="color:#f9004d">${teamId}</strong>) has been <strong style="color:#ef4444">REJECTED</strong> due to a payment validation issue.</p>
+        ${reason ? `<div style="background:#1a0a0a;border-left:3px solid #ef4444;padding:12px 16px;margin:20px 0;border-radius:2px;"><p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Reason</p><p style="margin:0;font-size:13px;color:#fca5a5;">${reason}</p></div>` : ""}
         <p style="font-size:14px;color:#aaa;">Please reach out to the SCYP coordinators immediately to resolve this issue.</p>
         <hr style="border-color:#1a1a1a;margin:24px 0;" />
         <p style="font-size:12px;color:#555;">Team SquidHack — SAGE University, Indore</p>

@@ -33,7 +33,7 @@ export const loginAdmin = async (req, res) => {
 };
 
 export const sendEmail = async (req, res) => {
-  const { to, teamName, leaderName, teamId, status } = req.body;
+  const { to, teamName, leaderName, teamId, status, reason } = req.body;
 
   if (!to || !teamName || !leaderName || !teamId || !status) {
     return res.status(400).json({ message: "Missing required email fields." });
@@ -48,7 +48,7 @@ export const sendEmail = async (req, res) => {
   }
 
   try {
-    await sendStatusEmail({ to, teamName, leaderName, teamId, status });
+    await sendStatusEmail({ to, teamName, leaderName, teamId, status, reason: reason || "" });
     res.status(200).json({ message: `Email successfully sent to ${to}` });
   } catch (error) {
     console.error("Email send error:", error.message);

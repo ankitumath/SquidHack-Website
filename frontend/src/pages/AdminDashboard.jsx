@@ -14,6 +14,10 @@ const AdminDashboard = () => {
   const [error, setError] = useState("");
   const [emailSending, setEmailSending] = useState({}); // { teamId: true/false }
   const [emailSent, setEmailSent] = useState({}); // { teamId: 'success'|'error'|null }
+  // Reject reason modal state
+  const [rejectModalOpen, setRejectModalOpen] = useState(false);
+  const [rejectTargetId, setRejectTargetId] = useState(null);
+  const [rejectReason, setRejectReason] = useState("");
   const navigate = useNavigate();
 
   // Check authentication and load data
@@ -99,16 +103,24 @@ const AdminDashboard = () => {
   };
 
   // Send real email via backend
-  const handleSendEmail = async (teamId, status) => {
+  const handleSendEmail = async (teamId, status, reason = "") => {
     const token = localStorage.getItem("adminToken");
     const team = submissions.find((item) => item.id === teamId);
     if (!team) return;
+
+    // Duplicate-send guard
+    if (emailSent[teamId] === "success") {
+      const confirmed = window.confirm(
+        `An email has already been sent to ${team.leaderEmail} for this team.\n\nSend again?`
+      );
+      if (!confirmed) return;
+    }
 
     setEmailSending((prev) => ({ ...prev, [teamId]: true }));
     setEmailSent((prev) => ({ ...prev, [teamId]: null }));
 
     try {
-      const response = await fetch("/api/admin/send-email", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,6 +132,7 @@ const AdminDashboard = () => {
           leaderName: team.leaderName,
           teamId: team.id,
           status,
+          reason,
         }),
       });
 
@@ -128,13 +141,18 @@ const AdminDashboard = () => {
 
       setEmailSent((prev) => ({ ...prev, [teamId]: "success" }));
 
-      // Log the sent email
+      // Log the sent email with timestamp, status, and optional reason
       const newLog = {
+        id: teamId,
+        teamName: team.teamName,
         to: team.leaderEmail,
-        subject: status === "Approved"
-          ? `✅ SquidHack 2026 — Finalist Spot Confirmed! [${team.id}]`
-          : `⚠️ SquidHack 2026 — Registration Status Update [${team.id}]`,
+        subject:
+          status === "Approved"
+            ? `✅ SquidHack 2026 — Finalist Spot Confirmed! [${team.id}]`
+            : `⚠️ SquidHack 2026 — Registration Status Update [${team.id}]`,
         status,
+        reason: reason || "",
+        sentStatus: "success",
         timestamp: new Date().toLocaleString(),
       };
       const updatedLogs = [newLog, ...emailLogs];
@@ -142,10 +160,41 @@ const AdminDashboard = () => {
       localStorage.setItem("squidhack_emails", JSON.stringify(updatedLogs));
     } catch (err) {
       setEmailSent((prev) => ({ ...prev, [teamId]: "error" }));
+      // Log failed attempt too
+      const failLog = {
+        id: teamId,
+        teamName: team.teamName,
+        to: team.leaderEmail,
+        subject: `❌ FAILED — ${status} email to ${team.teamName}`,
+        status,
+        reason: reason || "",
+        sentStatus: "error",
+        timestamp: new Date().toLocaleString(),
+      };
+      const updatedLogs = [failLog, ...emailLogs];
+      setEmailLogs(updatedLogs);
+      localStorage.setItem("squidhack_emails", JSON.stringify(updatedLogs));
       alert("Email Error: " + err.message);
     } finally {
       setEmailSending((prev) => ({ ...prev, [teamId]: false }));
     }
+  };
+
+  // Open reject modal
+  const openRejectModal = (teamId) => {
+    setRejectTargetId(teamId);
+    setRejectReason("");
+    setRejectModalOpen(true);
+  };
+
+  // Confirm rejection email from modal
+  const confirmRejectEmail = () => {
+    if (rejectTargetId) {
+      handleSendEmail(rejectTargetId, "Rejected", rejectReason);
+    }
+    setRejectModalOpen(false);
+    setRejectTargetId(null);
+    setRejectReason("");
   };
 
   // Admin approval/rejection updates
@@ -477,51 +526,162 @@ const AdminDashboard = () => {
                 </div>
               )}
 
-              {/* Email Logs */}
+              {/* Email Actions + Logs */}
               {activeAdminTab === "emails" && (
-                <div className="w-full flex flex-col gap-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                      Sent Notifications History
-                    </span>
-                    <button
-                      onClick={() => {
-                        setEmailLogs([]);
-                        localStorage.setItem("squidhack_emails", "[]");
-                      }}
-                      className="text-[10px] text-squid-pink hover:text-white font-bold uppercase tracking-widest cursor-pointer"
-                    >
-                      Clear Log
-                    </button>
+                <div className="w-full flex flex-col gap-6">
+
+                  {/* --- One-click Email Actions Table --- */}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-l-2 border-squid-pink pl-2">
+                        Email Actions — Send Approve / Reject to Participants
+                      </span>
+                      <span className="text-[9px] text-gray-600 uppercase tracking-wider font-bold">One-click send</span>
+                    </div>
+
+                    <div className="w-full overflow-x-auto">
+                      <table className="min-w-[540px] w-full text-left border-collapse text-xs">
+                        <thead>
+                          <tr className="border-b border-gray-800 text-gray-500 uppercase tracking-wider font-bold">
+                            <th className="py-3 px-3">Team</th>
+                            <th className="py-3 px-3">Leader Email</th>
+                            <th className="py-3 px-3">Status</th>
+                            <th className="py-3 px-3 text-right">Email Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-900">
+                          {submissions.length === 0 ? (
+                            <tr>
+                              <td colSpan="4" className="py-8 text-center text-gray-600 uppercase tracking-widest">
+                                No registrations loaded
+                              </td>
+                            </tr>
+                          ) : (
+                            submissions.map((item) => (
+                              <tr key={item.id} className="hover:bg-white/5 transition-colors">
+                                <td className="py-3 px-3">
+                                  <div className="font-bold text-white">{item.teamName}</div>
+                                  <div className="text-[10px] text-squid-pink font-tech">{item.id}</div>
+                                </td>
+                                <td className="py-3 px-3 text-gray-400 text-[11px]">{item.leaderEmail}</td>
+                                <td className="py-3 px-3">
+                                  {item.status === "Approved" && (
+                                    <span className="px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase bg-green-950/40 text-green-500 border border-green-800">Approved</span>
+                                  )}
+                                  {item.status === "Rejected" && (
+                                    <span className="px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase bg-red-950/40 text-red-500 border border-red-800">Rejected</span>
+                                  )}
+                                  {item.status === "Pending" && (
+                                    <span className="px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase bg-yellow-950/40 text-yellow-500 border border-yellow-800">Pending</span>
+                                  )}
+                                </td>
+                                <td className="py-3 px-3">
+                                  <div className="flex justify-end gap-2">
+                                    {/* Approve Email Button */}
+                                    <button
+                                      onClick={() => handleSendEmail(item.id, "Approved")}
+                                      disabled={emailSending[item.id]}
+                                      title={`Send Approval email to ${item.leaderEmail}`}
+                                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-[10px] font-bold uppercase transition-all cursor-pointer disabled:opacity-50 ${
+                                        emailSent[item.id] === "success" && item.status === "Approved"
+                                          ? "bg-green-950 border border-green-600 text-green-400"
+                                          : "bg-green-950/30 border border-green-900 hover:border-green-600 hover:bg-green-950 text-green-500 hover:text-green-300"
+                                      }`}
+                                    >
+                                      {emailSending[item.id] ? (
+                                        <svg className="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg>
+                                      ) : emailSent[item.id] === "success" ? (
+                                        <span>✓</span>
+                                      ) : (
+                                        <span>✉</span>
+                                      )}
+                                      {emailSending[item.id] ? "Sending..." : emailSent[item.id] === "success" ? "Sent" : "Approve"}
+                                    </button>
+
+                                    {/* Reject Email Button */}
+                                    <button
+                                      onClick={() => openRejectModal(item.id)}
+                                      disabled={emailSending[item.id]}
+                                      title={`Send Rejection email to ${item.leaderEmail}`}
+                                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-[10px] font-bold uppercase transition-all cursor-pointer disabled:opacity-50 ${
+                                        emailSent[item.id] === "error"
+                                          ? "bg-red-950 border border-red-600 text-red-400"
+                                          : "bg-red-950/30 border border-red-900 hover:border-red-600 hover:bg-red-950 text-red-500 hover:text-red-300"
+                                      }`}
+                                    >
+                                      <span>✕</span>
+                                      {emailSending[item.id] ? "Sending..." : "Reject"}
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            ))
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                  <div id="email-logs-list" className="flex flex-col gap-3 max-h-[400px] overflow-y-auto pr-2">
-                    {emailLogs.length === 0 ? (
-                      <div className="text-xs text-gray-500 py-8 text-center uppercase tracking-widest">
-                        No emails sent yet
+
+                  {/* --- Email Sent Log --- */}
+                  <div className="flex flex-col gap-3 border-t border-gray-900 pt-5">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                        Sent Notifications History ({emailLogs.length})
+                      </span>
+                      <button
+                        onClick={() => {
+                          setEmailLogs([]);
+                          setEmailSent({});
+                          localStorage.setItem("squidhack_emails", "[]");
+                        }}
+                        className="text-[10px] text-squid-pink hover:text-white font-bold uppercase tracking-widest cursor-pointer"
+                      >
+                        Clear Log
+                      </button>
+                    </div>
+                    <div id="email-logs-list" className="flex flex-col gap-3 max-h-[380px] overflow-y-auto pr-2">
+                      {emailLogs.length === 0 ? (
+                        <div className="text-xs text-gray-500 py-8 text-center uppercase tracking-widest">
+                          No emails sent yet
                       </div>
                     ) : (
                       emailLogs.map((log, index) => (
                         <div
                           key={index}
-                          className="bg-black/60 border border-gray-900 p-4 rounded-sm flex flex-col gap-2 relative"
+                          className={`bg-black/60 border p-4 rounded-sm flex flex-col gap-2 relative ${
+                            log.sentStatus === "error" ? "border-red-900/60" : "border-gray-900"
+                          }`}
                         >
                           <div className="flex justify-between items-center text-[10px] text-gray-500 uppercase font-bold">
                             <span>
                               To: <strong className="text-white">{log.to}</strong>
+                              {log.teamName && <span className="text-gray-600 ml-2">({log.teamName})</span>}
                             </span>
-                            <span>{log.timestamp}</span>
+                            <span className="shrink-0 ml-2">{log.timestamp}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <div className="text-[11px] font-bold text-squid-pink tracking-wide">{log.subject}</div>
-                            <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-sm uppercase ${
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <div className="text-[11px] font-bold text-squid-pink tracking-wide flex-1">{log.subject}</div>
+                            <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-sm uppercase shrink-0 ${
                               log.status === "Approved"
                                 ? "bg-green-950/60 text-green-500 border border-green-800"
                                 : "bg-red-950/60 text-red-500 border border-red-800"
                             }`}>{log.status}</span>
+                            {log.sentStatus === "error" && (
+                              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-sm uppercase bg-orange-950/60 text-orange-400 border border-orange-800">Send Failed</span>
+                            )}
+                            {log.sentStatus === "success" && (
+                              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-sm uppercase bg-green-950/30 text-green-600 border border-green-900">✓ Delivered</span>
+                            )}
                           </div>
+                          {log.reason && (
+                            <div className="mt-1 text-[10px] text-gray-400 border-l-2 border-red-800 pl-2">
+                              <span className="text-gray-600 uppercase tracking-widest text-[9px]">Reason: </span>{log.reason}
+                            </div>
+                          )}
                         </div>
                       ))
                     )}
+                    </div>
                   </div>
                 </div>
               )}
@@ -530,7 +690,6 @@ const AdminDashboard = () => {
         )}
       </main>
 
-      {/* DETAIL MODAL */}
       {detailsModalOpen && selectedTeamForModal && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center px-4">
           <div className="glass-card max-w-2xl w-full p-6 md:p-8 rounded-sm border border-gray-800 flex flex-col gap-6 max-h-[85vh] overflow-y-auto">
