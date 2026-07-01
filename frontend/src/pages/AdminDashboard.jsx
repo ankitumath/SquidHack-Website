@@ -853,6 +853,46 @@ const AdminDashboard = () => {
           </div>
         </div>
       )}
+
+      {/* REJECT MODAL */}
+      {rejectModalOpen && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center px-4">
+          <div className="glass-card max-w-md w-full p-6 rounded-sm border border-gray-800 flex flex-col gap-4">
+            <div>
+              <h3 className="text-sm font-bold text-white uppercase tracking-widest border-l-2 border-squid-pink pl-2">
+                Reject Registration
+              </h3>
+              <p className="text-[11px] text-gray-400 mt-1">
+                Enter an optional reason for rejecting this registration. It will be included in the email.
+              </p>
+            </div>
+            <textarea
+              className="w-full h-24 bg-black/60 border border-gray-800 rounded-sm p-2 text-xs text-white focus:outline-none focus:border-squid-pink resize-none"
+              placeholder="e.g. Invalid payment screenshot, duplicate details..."
+              value={rejectReason}
+              onChange={(e) => setRejectReason(e.target.value)}
+            />
+            <div className="flex justify-end gap-2 text-xs font-bold uppercase">
+              <button
+                onClick={() => {
+                  setRejectModalOpen(false);
+                  setRejectTargetId(null);
+                  setRejectReason("");
+                }}
+                className="px-4 py-2 border border-gray-800 hover:border-white text-gray-400 hover:text-white rounded-sm transition-colors cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmRejectEmail}
+                className="px-4 py-2 bg-red-950 border border-red-800 hover:border-red-600 text-red-500 hover:text-red-300 rounded-sm transition-colors cursor-pointer"
+              >
+                Confirm Reject
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -395,7 +395,7 @@ const Register = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Team Name *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Team Name *</label>
                     <input
                       type="text"
                       name="teamName"
@@ -403,11 +403,11 @@ const Register = () => {
                       onChange={handleInputChange}
                       required
                       placeholder="Enter Team Name"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">College/University Name *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">College/University Name *</label>
                     <input
                       type="text"
                       name="college"
@@ -415,11 +415,11 @@ const Register = () => {
                       onChange={handleInputChange}
                       required
                       placeholder="e.g. SAGE University"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Team Leader Name *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Team Leader Name *</label>
                     <input
                       type="text"
                       name="leaderName"
@@ -427,11 +427,11 @@ const Register = () => {
                       onChange={handleInputChange}
                       required
                       placeholder="Full Name"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Team Leader Email *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Team Leader Email *</label>
                     <input
                       type="email"
                       name="leaderEmail"
@@ -439,11 +439,11 @@ const Register = () => {
                       onChange={handleInputChange}
                       required
                       placeholder="leader@gmail.com"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Team Leader Mobile *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Team Leader Mobile *</label>
                     <input
                       type="tel"
                       name="leaderMobile"
@@ -452,11 +452,11 @@ const Register = () => {
                       pattern="[0-9]{10}"
                       required
                       placeholder="10-digit number"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">City & State *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">City & State *</label>
                     <input
                       type="text"
                       name="cityState"
@@ -464,16 +464,16 @@ const Register = () => {
                       onChange={handleInputChange}
                       required
                       placeholder="Indore, MP"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2 md:col-span-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Number of Team Members *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Number of Team Members *</label>
                     <select
                       name="memberCount"
                       value={formData.memberCount}
                       onChange={handleInputChange}
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all cursor-pointer"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-3 text-sm md:text-base text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all cursor-pointer"
                     >
                       <option value="1">1 Member (Solo Leader)</option>
                       <option value="2">2 Members</option>
@@ -505,29 +505,29 @@ const Register = () => {
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[9px] font-bold tracking-widest uppercase text-gray-500">Full Name *</label>
+                            <label className="text-[11px] font-bold tracking-widest uppercase text-gray-500">Full Name *</label>
                             <input
                               type="text"
                               name={`memberName_${idx}`}
                               value={formData[`memberName_${idx}`] || ""}
                               onChange={handleInputChange}
                               required
-                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-1.5 text-xs text-white focus:outline-none transition-all"
+                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-2 text-sm text-white focus:outline-none transition-all"
                             />
                           </div>
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[9px] font-bold tracking-widest uppercase text-gray-500">Email Address *</label>
+                            <label className="text-[11px] font-bold tracking-widest uppercase text-gray-500">Email Address *</label>
                             <input
                               type="email"
                               name={`memberEmail_${idx}`}
                               value={formData[`memberEmail_${idx}`] || ""}
                               onChange={handleInputChange}
                               required
-                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-1.5 text-xs text-white focus:outline-none transition-all"
+                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-2 text-sm text-white focus:outline-none transition-all"
                             />
                           </div>
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[9px] font-bold tracking-widest uppercase text-gray-500">Mobile Number *</label>
+                            <label className="text-[11px] font-bold tracking-widest uppercase text-gray-500">Mobile Number *</label>
                             <input
                               type="tel"
                               name={`memberMobile_${idx}`}
@@ -536,12 +536,12 @@ const Register = () => {
                               pattern="[0-9]{10}"
                               required
                               placeholder="10-digit number"
-                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-1.5 text-xs text-white focus:outline-none transition-all"
+                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-2 text-sm text-white placeholder:text-[11px] placeholder:text-gray-500 focus:outline-none transition-all"
                             />
                           </div>
                        
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[9px] font-bold tracking-widest uppercase text-gray-500">College Name *</label>
+                            <label className="text-[11px] font-bold tracking-widest uppercase text-gray-500">College Name *</label>
                             <input
                               type="text"
                               name={`memberCollege_${idx}`}
@@ -549,10 +549,10 @@ const Register = () => {
                               onChange={handleInputChange}
                               required
                               placeholder="e.g. SAGE University"
-                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-1.5 text-xs text-white focus:outline-none transition-all"
+                              className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-3 py-2 text-sm text-white placeholder:text-[11px] placeholder:text-gray-500 focus:outline-none transition-all"
                             />
                           </div>
-                    
+                     
                         </div>
                       </div>
                     ))
@@ -572,34 +572,36 @@ const Register = () => {
 
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Project Title *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Project Title *</label>
                     <input
                       type="text"
                       name="projectTitle"
                       value={formData.projectTitle}
                       onChange={handleInputChange}
                       required
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      placeholder="Enter project title"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Problem Statement *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Problem Statement *</label>
                     <input
                       type="text"
                       name="problemStatement"
                       value={formData.problemStatement}
                       onChange={handleInputChange}
                       required
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      placeholder="Describe the problem statement you are addressing"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Theme Category *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Theme Category *</label>
                     <select
                       name="themeCategory"
                       value={formData.themeCategory}
                       onChange={handleInputChange}
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all cursor-pointer"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-3 text-sm md:text-base text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all cursor-pointer"
                     >
                       <option value="Innovate">INNOVATE (Disruptive Ideas)</option>
                       <option value="Solve">SOLVE (Real-world scalable solutions)</option>
@@ -608,9 +610,9 @@ const Register = () => {
                   </div>
                   <div className="flex flex-col gap-2">
                     <div className="flex justify-between items-center">
-                      <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Project Description *</label>
+                      <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Project Description *</label>
                       <span
-                        className={`text-[10px] font-bold ${
+                        className={`text-xs font-bold ${
                           getDescriptionWordCount() > 500 ? "text-squid-pink animate-pulse" : "text-gray-500"
                         }`}
                       >
@@ -623,7 +625,8 @@ const Register = () => {
                       onChange={handleInputChange}
                       required
                       rows="6"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all resize-none font-medium"
+                      placeholder="Provide a detailed description of your project..."
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all resize-none font-medium"
                     ></textarea>
                   </div>
                 </div>
@@ -679,7 +682,7 @@ const Register = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">
                       UPI Transaction ID (12-Digit) *
                     </label>
                     <input
@@ -690,22 +693,22 @@ const Register = () => {
                       required
                       pattern="[0-9]{12}"
                       placeholder="e.g. 617892345091"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Your UPI ID Used</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Your UPI ID Used</label>
                     <input
                       type="text"
                       name="upiId"
                       value={formData.upiId}
                       onChange={handleInputChange}
                       placeholder="e.g. name@okhdfcbank"
-                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
+                      className="bg-black/60 border border-gray-800 focus:border-squid-pink rounded-sm px-4 py-2.5 text-sm md:text-base text-white placeholder:text-[13px] md:placeholder:text-sm placeholder:text-gray-500 focus:outline-none focus:shadow-[0_0_10px_rgba(249,0,77,0.2)] transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-2 md:col-span-2">
-                    <label className="text-[10px] font-bold tracking-widest uppercase text-gray-400">Upload Payment Screenshot *</label>
+                    <label className="text-xs md:text-[13px] font-bold tracking-widest uppercase text-gray-400">Upload Payment Screenshot *</label>
                     <div className="relative border border-dashed border-gray-800 hover:border-squid-pink transition-colors rounded-sm p-6 flex flex-col items-center justify-center cursor-pointer bg-black/40 group">
                       <input
                         type="file"
@@ -734,7 +737,7 @@ const Register = () => {
                         {selectedFile ? "CHANGE FILE" : "CHOOSE RECEIPT IMAGE (JPG/JPEG/PNG)"}
                       </div>
                       {selectedFile && (
-                        <span className="text-[10px] text-squid-pink font-bold uppercase mt-2">✓ Selected: {selectedFile}</span>
+                        <span className="text-xs text-squid-pink font-bold uppercase mt-2">✓ Selected: {selectedFile}</span>
                       )}
                     </div>
                   </div>
@@ -757,7 +760,7 @@ const Register = () => {
                     <h3 className="text-xs font-tech font-black tracking-widest text-squid-pink uppercase mb-3 border-b border-gray-900 pb-1.5">
                       Registration Summary Review
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-gray-400 font-medium">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm text-gray-400 font-medium">
                       <div>
                         <span className="text-gray-650">Team Name:</span>{" "}
                         <strong className="text-white">{formData.teamName}</strong>
@@ -797,7 +800,7 @@ const Register = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-3 font-semibold text-xs text-gray-400">
+                  <div className="flex flex-col gap-3 font-semibold text-xs md:text-sm text-gray-400">
                     <label className="flex items-start gap-3 cursor-pointer hover:text-white transition-colors">
                       <input
                         type="checkbox"
