@@ -33,7 +33,9 @@ const Footer = () => {
           </div>
 
           <div className="text-squid-pink text-[10px] tracking-[0.2em] font-bold uppercase">
-            M BLOCK, SAGE UNIVERSITY, INDORE
+            M BLOCK, SAGE UNIVERSITY, KAILOD KARTAL,
+            <br />
+           RAU BYPASS ROAD, INDORE (M.P.)
           </div>
         </div>
 

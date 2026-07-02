@@ -66,8 +66,8 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-widest uppercase">
-          <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-squid-pink">HOME</a>
+        <nav className="absolute right-110 hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-widest uppercase">
+          <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-gray-300 hover:text-white transition-colors">HOME</a>
           <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="text-gray-300 hover:text-white transition-colors">ABOUT</a>
           <a href="#schedule" onClick={(e) => handleNavClick(e, 'schedule')} className="text-gray-300 hover:text-white transition-colors">SCHEDULE</a>
           <a href="#challenges" onClick={(e) => handleNavClick(e, 'challenges')} className="text-gray-300 hover:text-white transition-colors">CHALLENGES</a>
@@ -77,7 +77,7 @@ const Navbar = () => {
           <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-gray-300 hover:text-white transition-colors">CONTACT</a>
         </nav>
 
-        <div className="flex items-center gap-4">
+        {/* <div className="flex items-center gap-4">
           <Link 
             to="/register" 
             className="hidden sm:flex items-center justify-center gap-2 border border-squid-pink text-squid-pink px-4 py-2 rounded-sm text-[10px] sm:text-xs font-bold tracking-[0.2em] hover:bg-squid-pink/10 transition-colors uppercase bg-black/40 backdrop-blur-sm z-50"
@@ -93,7 +93,7 @@ const Navbar = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
             </svg>
           </button>
-        </div>
+        </div> */}
       </header>
 
       {/* Mobile Drawer Overlay */}
