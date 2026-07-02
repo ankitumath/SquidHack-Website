@@ -149,7 +149,7 @@ const Home = () => {
               </div>
 
               {/* Register */}
-              <Link to="/register" className="flex items-center gap-6 justify-end relative z-10 group cursor-pointer">
+              <Link to="#" className="flex items-center gap-6 justify-end relative z-10 group cursor-pointer">
                 <div className="text-gray-400 text-xs md:text-sm tracking-widest font-bold group-hover:text-squid-pink transition-colors animate-timeline-text">
                   REGISTER
                 </div>
