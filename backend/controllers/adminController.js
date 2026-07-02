@@ -48,11 +48,14 @@ export const sendEmail = async (req, res) => {
   }
 
   try {
-    await sendStatusEmail({ to, teamName, leaderName, teamId, status, reason: reason || "" });
-    res.status(200).json({ message: `Email successfully sent to ${to}` });
+    // Fire-and-forget to make the API response fast. The email will send in the background.
+    sendStatusEmail({ to, teamName, leaderName, teamId, status, reason: reason || "" })
+      .catch((err) => console.error(`[Background Task] Email send error for ${to}:`, err.message));
+
+    res.status(200).json({ message: `Email dispatched to ${to} (Background task)` });
   } catch (error) {
-    console.error("Email send error:", error.message);
-    res.status(500).json({ message: "Failed to send email. Check SMTP credentials in .env." });
+    console.error("Email trigger error:", error.message);
+    res.status(500).json({ message: "Failed to trigger email task." });
   }
 };
 
